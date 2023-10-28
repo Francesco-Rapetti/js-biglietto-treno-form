@@ -17,17 +17,17 @@
 </head>
 
 <body>
-    <div class="glass rounded-4 d-flex flex-column w-80 m-auto pt-4">
-        <div class="d-flex justify-content-center align-items-center mb-2">
-            <div class="mb-3 mx-1 w-25">
+    <div class="glass container rounded-4 m-auto pt-4">
+        <div class="row justify-content-center align-items-center mb-2 mx-1 mx-md-0">
+            <div class="mb-3 col-md-3">
                 <label for="name-surname" class="form-label">Nome Cognome</label>
                 <input type="text" class="form-control bg-transparent border-3" id="name-surname">
             </div>
-            <div class="mb-3 mx-1 w-25">
+            <div class="mb-3 col-md-3">
                 <label for="km" class="form-label">Km da percorrere</label>
                 <input type="number" class="form-control bg-transparent border-3" id="km">
             </div>
-            <div class="mb-3 mx-1 w-25">
+            <div class="mb-3 col-md-3">
                 <label for="age" class="form-label">Fascia d'età</label>
                 <select id="age" class="form-select bg-transparent border-3">
                     <option selected value="none">Selezione fascia d'età</option>
@@ -45,8 +45,8 @@
             </div>
         </div>
         
-        <div id="ticket" class="w-75 m-auto">
-            <p id="message" class="d-none"></p>
+        <div id="ticket" class="w-75 m-auto bg-white rounded-4 mt-5 d-none">
+            <p id="message"></p>
     
         </div>
         

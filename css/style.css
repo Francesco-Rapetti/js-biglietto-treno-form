@@ -29,8 +29,8 @@ body {
     width: 100px!important;
 }
 
-.form-control {
-    /* background-color: transparent!important; */
-}
-
 .w-80 { width: 80%; }
+
+#ticket {
+    height: 150px;
+}
