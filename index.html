@@ -4,43 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ticket Generator</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class=" bg-white rounded-4">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="mb-3 col-5">
-                    <label for="name-surname" class="form-label">Nome Cognome</label>
-                    <input type="text" class="form-control" id="name-surname">
-                </div>
-                <div class="mb-3 col-5">
-                    <label for="km" class="form-label">Km da percorrere</label>
-                    <input type="number" class="form-control" id="km">
-                </div>
-                <select id="age" class="form-select col h-25">
+    <div class="glass rounded-4 d-flex flex-column w-80 m-auto pt-4">
+        <div class="d-flex justify-content-center align-items-center mb-2">
+            <div class="mb-3 mx-1 w-25">
+                <label for="name-surname" class="form-label">Nome Cognome</label>
+                <input type="text" class="form-control bg-transparent border-3" id="name-surname">
+            </div>
+            <div class="mb-3 mx-1 w-25">
+                <label for="km" class="form-label">Km da percorrere</label>
+                <input type="number" class="form-control bg-transparent border-3" id="km">
+            </div>
+            <div class="mb-3 mx-1 w-25">
+                <label for="age" class="form-label">Fascia d'età</label>
+                <select id="age" class="form-select bg-transparent border-3">
                     <option selected value="none">Selezione fascia d'età</option>
                     <option value="minor">Minorenne</option>
                     <option value="major">Maggiorenne</option>
                     <option value="over65">Over 65</option>
                 </select>
             </div>
-    
-            <div class="row">
-                <button id="generate" class="btn bg-primary text-white w-25">Genera</button>
-                <button id="abort" href="#" class="btn bg-primary text-white w-25">Annulla</button>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <div>
+                <button id="generate" class="btn bg-primary text-white mx-2">Genera</button>
+                <button id="abort" href="#" class="btn bg-primary text-white">Annulla</button>
             </div>
         </div>
         
-        <div id="ticket">
-            <p id="message" class="d-none">asdasd</p>
+        <div id="ticket" class="w-75 m-auto">
+            <p id="message" class="d-none"></p>
     
         </div>
         

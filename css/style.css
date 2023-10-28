@@ -1,9 +1,36 @@
+:root {
+    --glass-height: 200px;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }
 
 body {
-    background-color: #222222!important;
+    background: url(https://static.vecteezy.com/system/resources/previews/025/507/867/original/museum-ticket-icons-set-flat-control-guide-vector.jpg) repeat;
+    background-size: 500px;
+    padding-top: calc(50vh - (var(--glass-height) / 2));
 }
+
+.glass {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5); 
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+    margin-top: 5rem;
+    height: var(--glass-height);
+}
+
+.btn {
+    width: 100px!important;
+}
+
+.form-control {
+    /* background-color: transparent!important; */
+}
+
+.w-80 { width: 80%; }
