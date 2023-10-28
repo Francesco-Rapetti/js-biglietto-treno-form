@@ -7,10 +7,7 @@ const prezzoAlKm = 0.21;
 let prezzo;
 let sconto;
 let message = document.getElementById('message');
-
-// console.log(nome.value);
-// console.log(kilometri.value);
-// console.log(eta.value);
+let ticket = document.getElementById('ticket');
 
 btn1.addEventListener("click", function() {
     switch (eta.value) {
@@ -19,7 +16,7 @@ btn1.addEventListener("click", function() {
         case 'over65': sconto = 40; break;
     }
     message.innerHTML = nome.value + kilometri.value + eta.value + sconto;
-    message.className = "d-block";
+    ticket.className = "d-block";
 });
 
 btn2.addEventListener("click", function() {
