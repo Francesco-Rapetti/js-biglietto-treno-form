@@ -1,5 +1,5 @@
 :root {
-    --ticket-height: 600px;
+    /* --ticket-height: 600px; */
 }
 
 * {
@@ -49,7 +49,7 @@ body {
 }
 
 #ticket {
-    height: var(--ticket-height);
+    /* height: var(--ticket-height); */
     background-color: rgba(255, 255, 255, 0.7);
     transition: all 1s ease-in-out;
     overflow: hidden;

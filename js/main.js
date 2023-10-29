@@ -59,7 +59,7 @@ btn1.addEventListener("click", function() {
     //     default: console.log('default'); break;
     // }
 
-    glass.style.setProperty('max-height', '1000px')
+    // glass.style.setProperty('max-height', '1000px')
 
     expanded = true;
     ticket.classList.remove('d-none');
