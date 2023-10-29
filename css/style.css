@@ -44,14 +44,12 @@ body {
     background-color: #0d6dfd !important;
 }
 
-.w-80 {
-    width: 80%;
-}
+.w-80 { width: 80%; }
+.barred { text-decoration: line-through; }
 
 #ticket {
     /* height: var(--ticket-height); */
     background-color: rgba(255, 255, 255, 0.7);
-    transition: all 1s ease-in-out;
     overflow: hidden;
 }
 

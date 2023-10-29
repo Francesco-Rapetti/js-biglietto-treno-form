@@ -8,7 +8,6 @@ const btn2 = document.getElementById("abort");
 const prezzoAlKm = 0.21;
 let prezzo;
 let sconto = 0;
-let expanded = false;
 let md = window.matchMedia("(min-width: 768px)")
 let lg = window.matchMedia("(min-width: 993px)")
 const glass = document.getElementById('glass');
@@ -18,6 +17,7 @@ const ticketOffer = document.getElementById('ticket-offer');
 const ticketCarriage = document.getElementById('ticket-carriage');
 const ticketCP = document.getElementById('ticket-cp');
 const ticketPrice = document.getElementById('ticket-price');
+const ticketPriceDiscounted = document.getElementById('ticket-price-discounted');
 
 let inputs = [nome, km, eta]
 for (let index = 0; index < inputs.length; index++) {
@@ -50,28 +50,27 @@ btn1.addEventListener("click", function() {
         default: console.log('età default'); break;
     }
 
-    console.log(rootGet.getPropertyValue('--media'));
-    
-    // switch (rootGet.getPropertyValue('--media')) {
-    //     case 'mobile': rootSet.style.setProperty('--glass-height', '1000px'); break;
-    //     case 'md': rootSet.style.setProperty('--glass-height', '600px'); break;
-    //     case 'lg': rootSet.style.setProperty('--glass-height', '400px'); break;
-    //     default: console.log('default'); break;
-    // }
+    console.log(sconto);
 
-    // glass.style.setProperty('max-height', '1000px')
+    if (sconto > 0) {
+        ticketPriceDiscounted.classList.remove('d-none');
+        ticketPriceDiscounted.innerHTML = `${priceCalculator(true)}&euro;`;
+        ticketPrice.classList.add('barred');
+        ticketPrice.innerHTML = `${priceCalculator(false)}&euro;`
+    } else {
+        ticketPriceDiscounted.classList.add('d-none');
+        ticketPrice.classList.remove('barred');
+        ticketPrice.innerHTML = `${priceCalculator(true)}&euro;`
+    }
 
-    expanded = true;
     ticket.classList.remove('d-none');
     ticketName.innerHTML = nome.value;
     ticketCarriage.innerHTML = Math.floor(Math.random() * 9) + 1;
     ticketCP.innerHTML = Math.floor(Math.random() * (100000 - 10000) ) + 10000;
-    ticketPrice.innerHTML = `${priceCalculator(true)}&euro;`
     btn1.classList.add('disabled');
 });
 
 btn2.addEventListener("click", function() {
-    expanded = false;
     ticket.classList.add('d-none');
     nome.value = '';
     kilometri.value = '';
