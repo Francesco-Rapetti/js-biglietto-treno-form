@@ -1,11 +1,29 @@
 :root {
-    /* mobile */
-    /* --glass-height: 365px; */
-    --glass-height: 1000px;
+    --media: 'mobile';
+    /* expanded: 1000px */
+    --glass-height: 365px;
     --ticket-height: 600px;
-    /* desktop */
-    /* --glass-height: 200; */
-    /* --ticket-height: 150px; */
+}
+
+/* media queries */
+/* md */
+@media screen and (min-width: 768px) {
+    :root {
+        --media: 'md'!important;
+        /* expanded: 600px */
+        --glass-height: 200px!important;
+        --ticket-height: 340px!important;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    :root {
+        --media: 'lg'!important;
+        /* expanded: 400px */
+        --glass-height: 200px!important;
+
+        --ticket-height: 150px!important;
+    }
 }
 
 * {
@@ -32,7 +50,7 @@ body {
     max-width: 1200px;
     margin-top: 5rem;
     height: var(--glass-height);
-    /* overflow: hidden; */
+    overflow: hidden;
     transition: all 1s ease-in-out;
 }
 
@@ -56,6 +74,8 @@ body {
 #ticket {
     height: var(--ticket-height);
     background-color: rgba(255, 255, 255, 0.7);
+    transition: all 1s ease-in-out;
+    overflow: hidden;
 }
 
 #ticket > .row {
