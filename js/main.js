@@ -1,13 +1,18 @@
-let nome = document.getElementById("name-surname");
-let kilometri = document.getElementById('km');
-let eta = document.getElementById('age');
-let btn1 = document.querySelector("#generate");
-let btn2 = document.getElementById("abort");
+const nome = document.getElementById("name-surname");
+const kilometri = document.getElementById('km');
+const eta = document.getElementById('age');
+const btn1 = document.querySelector("#generate");
+const btn2 = document.getElementById("abort");
 const prezzoAlKm = 0.21;
 let prezzo;
-let sconto;
+let sconto = 0;
 let message = document.getElementById('message');
-let ticket = document.getElementById('ticket');
+const ticket = document.getElementById('ticket');
+const ticketName = document.getElementById('ticket-name');
+const ticketOffer = document.getElementById('ticket-offer');
+const ticketCarriage = document.getElementById('ticket-carriage');
+const ticketCP = document.getElementById('ticket-cp');
+const ticketPrice = document.getElementById('ticket-price');
 
 let inputs = [nome, km, eta]
 for (let index = 0; index < inputs.length; index++) {
@@ -17,7 +22,6 @@ for (let index = 0; index < inputs.length; index++) {
             btn1.classList.remove("disabled");
             btn2.classList.remove("disabled");
         } else if (!("disabled" in btn1.classList && "disabled" in btn2.classList)) {
-            message.innerHTML = "Ha funzionato!";
             btn1.classList.add("disabled");
             btn2.classList.add("disabled");
         }
@@ -26,12 +30,26 @@ for (let index = 0; index < inputs.length; index++) {
 
 btn1.addEventListener("click", function() {
     switch (eta.value) {
-        case 'minor': sconto = 20; break;
-        case 'major': sconto = 0; break;
-        case 'over65': sconto = 40; break;
+        case 'minor': 
+            sconto = 20; 
+            ticketOffer.innerHTML = "Sconto minori"
+            break;
+        case 'major': 
+            sconto = 0; 
+            ticketOffer.innerHTML = "Tariffa standard"
+            break;
+        case 'over65': 
+            sconto = 40; 
+            ticketOffer.innerHTML = "Sconto over 65"
+            break;
     }
-    message.innerHTML = nome.value + kilometri.value + eta.value + sconto;
-    message.className = "d-block";
+    ticketName.innerHTML = nome.value;
+    ticketCarriage.innerHTML = Math.floor(Math.random() * 9) + 1;
+    ticketCP.innerHTML = Math.floor(Math.random() * (100000 - 10000) ) + 10000;
+    ticketPrice.innerHTML = `${priceCalculator(true)}&euro;`
+    btn1.classList.add('disabled');
+    // message.innerHTML = nome.value + kilometri.value + eta.value + sconto;
+    // message.className = "d-block";
 });
 
 btn2.addEventListener("click", function() {
@@ -40,16 +58,17 @@ btn2.addEventListener("click", function() {
     eta.value = 'none';
     btn1.classList.add('disabled');
     btn2.classList.add('disabled');
-    message.className = "d-none";
+    // message.className = "d-none";
 })
 
-
-console.log(nome.value);
-console.log(kilometri.value);
-console.log(eta.value);
-
-
-
+// returns discounted price if true and standard if false
+function priceCalculator(discount) {
+    if (discount) {
+        return ((km.value * prezzoAlKm) - percentageCalculator((km.value*prezzoAlKm), sconto)).toFixed(2);
+    } else {
+        return (km.value * prezzoAlKm).toFixed(2);
+    }
+}
 
 // returns percentage
 function percentageCalculator(num, percentage) {

@@ -39,8 +39,6 @@ body {
     background-color: #0d6dfd !important;
 }
 
-
-
 .w-80 {
     width: 80%;
 }
@@ -50,10 +48,10 @@ body {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-#ticket>.row {
+#ticket > .row {
     height: var(--ticket-height);
 }
 
-#ticket>.row> :first-child {
+#ticket > .row > :first-child {
     background-color: rgba(0, 0, 0, 0.5);
 }
