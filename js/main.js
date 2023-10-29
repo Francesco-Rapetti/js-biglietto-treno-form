@@ -9,11 +9,19 @@ let sconto;
 let message = document.getElementById('message');
 let ticket = document.getElementById('ticket');
 
-if (nome.value != null && nome.value != undefined && nome.value != "" &&
-    km.value != null && km.value != undefined && km.value != "" &&
-    eta.value != "none") {
-    btn1.classList.remove("disabled");
-    btn2.classList.remove("disabled");
+let inputs = [nome, km, eta]
+for (let index = 0; index < inputs.length; index++) {
+    inputs[index].addEventListener('input', function() {
+        // enable buttons if fields are filled
+        if (nome.value != "" && km.value != "" && eta.value != "none") {
+            btn1.classList.remove("disabled");
+            btn2.classList.remove("disabled");
+        } else if (!("disabled" in btn1.classList && "disabled" in btn2.classList)) {
+            message.innerHTML = "Ha funzionato!";
+            btn1.classList.add("disabled");
+            btn2.classList.add("disabled");
+        }
+    })
 }
 
 btn1.addEventListener("click", function() {
@@ -30,25 +38,18 @@ btn2.addEventListener("click", function() {
     nome.value = '';
     kilometri.value = '';
     eta.value = 'none';
+    btn1.classList.add('disabled');
+    btn2.classList.add('disabled');
     message.className = "d-none";
 })
 
-
-// console.log(message.value);
 
 console.log(nome.value);
 console.log(kilometri.value);
 console.log(eta.value);
 
-// checks if there are char in the string
-function numberController(input) {
-    for (let index = 0; index < input.length; index++) {
-        if (isNaN(input[index])) {
-            return false;
-        }
-    }
-    return true;
-}
+
+
 
 // returns percentage
 function percentageCalculator(num, percentage) {
