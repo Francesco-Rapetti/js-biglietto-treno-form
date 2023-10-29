@@ -1,4 +1,5 @@
-let root = document.documentElement;
+const rootGet = getComputedStyle(document.querySelector(':root'));
+const rootSet = document.querySelector(':root');
 const nome = document.getElementById("name-surname");
 const kilometri = document.getElementById('km');
 const eta = document.getElementById('age');
@@ -7,7 +8,10 @@ const btn2 = document.getElementById("abort");
 const prezzoAlKm = 0.21;
 let prezzo;
 let sconto = 0;
-let message = document.getElementById('message');
+let expanded = false;
+let md = window.matchMedia("(min-width: 768px)")
+let lg = window.matchMedia("(min-width: 993px)")
+const glass = document.getElementById('glass');
 const ticket = document.getElementById('ticket');
 const ticketName = document.getElementById('ticket-name');
 const ticketOffer = document.getElementById('ticket-offer');
@@ -43,23 +47,37 @@ btn1.addEventListener("click", function() {
             sconto = 40; 
             ticketOffer.innerHTML = "Sconto over 65"
             break;
+        default: console.log('età default'); break;
     }
+
+    console.log(rootGet.getPropertyValue('--media'));
+    
+    // switch (rootGet.getPropertyValue('--media')) {
+    //     case 'mobile': rootSet.style.setProperty('--glass-height', '1000px'); break;
+    //     case 'md': rootSet.style.setProperty('--glass-height', '600px'); break;
+    //     case 'lg': rootSet.style.setProperty('--glass-height', '400px'); break;
+    //     default: console.log('default'); break;
+    // }
+
+    glass.style.setProperty('max-height', '1000px')
+
+    expanded = true;
+    ticket.classList.remove('d-none');
     ticketName.innerHTML = nome.value;
     ticketCarriage.innerHTML = Math.floor(Math.random() * 9) + 1;
     ticketCP.innerHTML = Math.floor(Math.random() * (100000 - 10000) ) + 10000;
     ticketPrice.innerHTML = `${priceCalculator(true)}&euro;`
-    // root.style.setProperty('--glass-height', '400px');
     btn1.classList.add('disabled');
 });
 
 btn2.addEventListener("click", function() {
+    expanded = false;
+    ticket.classList.add('d-none');
     nome.value = '';
     kilometri.value = '';
     eta.value = 'none';
     btn1.classList.add('disabled');
     btn2.classList.add('disabled');
-    // root.style.setProperty('--glass-height', '200px');
-    // message.className = "d-none";
 })
 
 // returns discounted price if true and standard if false
