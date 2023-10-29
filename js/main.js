@@ -9,6 +9,13 @@ let sconto;
 let message = document.getElementById('message');
 let ticket = document.getElementById('ticket');
 
+if (nome.value != null && nome.value != undefined && nome.value != "" &&
+    km.value != null && km.value != undefined && km.value != "" &&
+    eta.value != "none") {
+    btn1.classList.remove("disabled");
+    btn2.classList.remove("disabled");
+}
+
 btn1.addEventListener("click", function() {
     switch (eta.value) {
         case 'minor': sconto = 20; break;
@@ -16,7 +23,7 @@ btn1.addEventListener("click", function() {
         case 'over65': sconto = 40; break;
     }
     message.innerHTML = nome.value + kilometri.value + eta.value + sconto;
-    ticket.className = "d-block";
+    message.className = "d-block";
 });
 
 btn2.addEventListener("click", function() {
@@ -27,7 +34,7 @@ btn2.addEventListener("click", function() {
 })
 
 
-console.log(message.value);
+// console.log(message.value);
 
 console.log(nome.value);
 console.log(kilometri.value);

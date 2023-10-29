@@ -1,5 +1,6 @@
 :root {
-    --glass-height: 200px;
+    --glass-height: 400px;
+    --ticket-height: 150px;
 }
 
 * {
@@ -17,7 +18,7 @@ body {
 }
 
 .glass {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5); 
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(10px);
     max-width: 1200px;
@@ -26,11 +27,39 @@ body {
 }
 
 .btn {
-    width: 100px!important;
+    width: 100px !important;
+    border: 0!important;
 }
 
-.w-80 { width: 80%; }
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border: 0!important;
+}
+
+.btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn#generate {
+    background-color: #0d6dfd !important;
+}
+
+
+
+.w-80 {
+    width: 80%;
+}
 
 #ticket {
-    height: 150px;
+    height: var(--ticket-height);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#ticket>.row {
+    height: var(--ticket-height);
+}
+
+#ticket>.row> :first-child {
+    background-color: rgba(0, 0, 0, 0.5);
 }
