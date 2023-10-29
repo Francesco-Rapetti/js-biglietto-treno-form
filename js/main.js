@@ -1,5 +1,3 @@
-const rootGet = getComputedStyle(document.querySelector(':root'));
-const rootSet = document.querySelector(':root');
 const nome = document.getElementById("name-surname");
 const kilometri = document.getElementById('km');
 const eta = document.getElementById('age');
