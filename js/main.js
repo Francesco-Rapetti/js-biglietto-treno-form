@@ -19,6 +19,7 @@ const ticketCP = document.getElementById('ticket-cp');
 const ticketPrice = document.getElementById('ticket-price');
 const ticketPriceDiscounted = document.getElementById('ticket-price-discounted');
 
+// enable/disable buttons
 let inputs = [nome, km, eta]
 for (let index = 0; index < inputs.length; index++) {
     inputs[index].addEventListener('input', function() {
@@ -33,6 +34,7 @@ for (let index = 0; index < inputs.length; index++) {
     })
 }
 
+// "Genera" button
 btn1.addEventListener("click", function() {
     switch (eta.value) {
         case 'minor': 
@@ -70,6 +72,7 @@ btn1.addEventListener("click", function() {
     btn1.classList.add('disabled');
 });
 
+// "Annulla" button
 btn2.addEventListener("click", function() {
     ticket.classList.add('d-none');
     nome.value = '';

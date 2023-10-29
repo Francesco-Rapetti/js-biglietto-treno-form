@@ -1,7 +1,3 @@
-:root {
-    /* --ticket-height: 600px; */
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,10 +10,9 @@ body {
     height: 100vh;
     background: url(https://static.vecteezy.com/system/resources/previews/025/507/867/original/museum-ticket-icons-set-flat-control-guide-vector.jpg) repeat;
     background-size: 500px;
-    /* padding-top: calc(50vh - (var(--glass-height) / 2)); */
     padding-left: 5%;
     padding-right: 5%;
-    /* transition: all 1s ease-in-out; */
+    transition: all 1s ease-in-out;
 }
 
 #glass {
@@ -48,7 +43,6 @@ body {
 .barred { text-decoration: line-through; }
 
 #ticket {
-    /* height: var(--ticket-height); */
     background-color: rgba(255, 255, 255, 0.7);
     overflow: hidden;
 }
