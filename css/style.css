@@ -1,6 +1,11 @@
 :root {
-    --glass-height: 400px;
-    --ticket-height: 150px;
+    /* mobile */
+    /* --glass-height: 365px; */
+    --glass-height: 1000px;
+    --ticket-height: 600px;
+    /* desktop */
+    /* --glass-height: 200; */
+    /* --ticket-height: 150px; */
 }
 
 * {
@@ -15,6 +20,9 @@ body {
     background: url(https://static.vecteezy.com/system/resources/previews/025/507/867/original/museum-ticket-icons-set-flat-control-guide-vector.jpg) repeat;
     background-size: 500px;
     padding-top: calc(50vh - (var(--glass-height) / 2));
+    padding-left: 5%;
+    padding-right: 5%;
+    transition: all 1s ease-in-out;
 }
 
 .glass {
@@ -24,6 +32,8 @@ body {
     max-width: 1200px;
     margin-top: 5rem;
     height: var(--glass-height);
+    /* overflow: hidden; */
+    transition: all 1s ease-in-out;
 }
 
 .btn {

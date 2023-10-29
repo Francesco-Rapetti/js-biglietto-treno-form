@@ -1,3 +1,4 @@
+let root = document.documentElement;
 const nome = document.getElementById("name-surname");
 const kilometri = document.getElementById('km');
 const eta = document.getElementById('age');
@@ -47,9 +48,8 @@ btn1.addEventListener("click", function() {
     ticketCarriage.innerHTML = Math.floor(Math.random() * 9) + 1;
     ticketCP.innerHTML = Math.floor(Math.random() * (100000 - 10000) ) + 10000;
     ticketPrice.innerHTML = `${priceCalculator(true)}&euro;`
+    // root.style.setProperty('--glass-height', '400px');
     btn1.classList.add('disabled');
-    // message.innerHTML = nome.value + kilometri.value + eta.value + sconto;
-    // message.className = "d-block";
 });
 
 btn2.addEventListener("click", function() {
@@ -58,6 +58,7 @@ btn2.addEventListener("click", function() {
     eta.value = 'none';
     btn1.classList.add('disabled');
     btn2.classList.add('disabled');
+    // root.style.setProperty('--glass-height', '200px');
     // message.className = "d-none";
 })
 
