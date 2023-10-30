@@ -5,7 +5,6 @@ const btn1 = document.querySelector("#generate");
 const btn2 = document.getElementById("abort");
 const prezzoAlKm = 0.21;
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// const letters = 'abcdefghijklmnopqrstuvwxyz';
 let prezzo;
 let sconto = 0;
 let md = window.matchMedia("(min-width: 768px)")
@@ -91,9 +90,10 @@ btn2.addEventListener("click", function() {
 // check if name is valid
 function nameValidator(name) {
     for (let i = 0; i < name.length; i++) {
-        console.log(name[i]);
-        console.log(name[i] in letters);
-        if ((name[i] in letters)) {
+        // console.log(name[i]);
+        // console.log(name[i] in letters);
+        // console.log(letters.includes(name[i]));
+        if (!(letters.includes(name[i]))) {
             return false;
         }
     }
