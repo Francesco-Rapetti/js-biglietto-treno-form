@@ -4,7 +4,7 @@ const eta = document.getElementById('age');
 const btn1 = document.querySelector("#generate");
 const btn2 = document.getElementById("abort");
 const prezzoAlKm = 0.21;
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let prezzo;
 let sconto = 0;
 let md = window.matchMedia("(min-width: 768px)")
@@ -70,7 +70,7 @@ btn1.addEventListener("click", function() {
         }
     
         ticket.classList.remove('d-none');
-        ticketName.innerHTML = nome.value;
+        ticketName.innerHTML = prettier(nome.value);
         ticketCarriage.innerHTML = Math.floor(Math.random() * 9) + 1;
         ticketCP.innerHTML = Math.floor(Math.random() * (100000 - 10000) ) + 10000;
         btn1.classList.add('disabled');
@@ -90,9 +90,6 @@ btn2.addEventListener("click", function() {
 // check if name is valid
 function nameValidator(name) {
     for (let i = 0; i < name.length; i++) {
-        // console.log(name[i]);
-        // console.log(name[i] in letters);
-        // console.log(letters.includes(name[i]));
         if (!(letters.includes(name[i]))) {
             return false;
         }
@@ -107,6 +104,22 @@ function priceCalculator(discount) {
     } else {
         return (km.value * prezzoAlKm).toFixed(2);
     }
+}
+
+// first letter upper case
+function prettier(name) {
+    name.toLowerCase();
+    let indexes = [0];
+    for (let i = 0; i < name.length; i++) {
+        if (name[i] == ' ' && i != name.length-1 && name[i+1] != ' ') {
+            indexes.push(i+1);
+        }
+    }
+    let output = '';
+    for (let i = 0; i < indexes.length; i++) {
+        output += name[indexes[i]].toUpperCase() + name.substring(indexes[i]+1, indexes[i+1])
+    }
+    return output;
 }
 
 // returns percentage
